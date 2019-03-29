@@ -1,29 +1,59 @@
- <div style = "text-align:center">
-  <b>Form </b>
-<form method = "post">
-  <b>Domain : </b>
-  <select name="domain" id="domainList">
-    <option value="lilavati">Lilavati</option>
-    <option value="bhaskara">Bhaskara</option>
-    <option value="library">Library</option>
-    <option value="sports">Sports</option>
-    <option value="mess">Mess</option>
-  </select>
-  <br>
-  <b>Subject : </b>
-  <input type="text" name="subject" placeholder="Subject">
-  <br>
-  <b>Description:</b>
-  <input type="text" name="description" placeholder="Description">
-  <br/>
-  <b>Duration : </b>
-  <input type="number" name = 'duration' placeholder="Days since problem faced"> 
-  <br>
-  <b>Confidentiality : </b>
-  <input type="radio" name = "anonymous" value = "anonymous">Anonymous   
-  <input type="radio" name = "public" value = "public" checked>Public
-  <br>  
-  <button type="submit">Submit</button> 
-</form>
+<div class="container"  >
+    <div class="jumbotron" >
 
-</div>
+
+
+    <h1>Form </h1>
+  <form #frm="ngForm" method = "post">
+
+      <div class="form-group">
+          <label for="domain">
+              Domain :
+          </label>
+               
+    
+    <select  class = "form-control"name="domain" id="domainList" ngModel required>
+      <option value="lilavati">Lilavati</option>
+      <option value="bhaskara">Bhaskara</option>
+      <option value="library">Library</option>
+      <option value="sports">Sports</option>
+      <option value="mess">Mess</option>
+      
+    </select>
+  </div>
+
+  <div class="form-group">
+      <label for="subject">
+          Subject : 
+      </label>
+      <input type="text" class = "form-control" name="subject" placeholder="Subject" ngModel required>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label for="description">
+            Description : 
+        </label>
+        <input type="text" class = "form-control" name="description" placeholder="Description" ngModel required>
+      </div>
+    
+    <br/>
+    
+
+    <div class="form-group">
+        <label for="confidentiality">
+            Confidentiality : 
+        </label>
+        <input type="radio" name = "anonymous" value = "anonymous" ngModel required>Anonymous   
+        <input type="radio" name = "public" value = "public" checked ngModel required>Public
+      </div>
+  
+    
+    <br/>  
+    <button type="submit" class="btn btn-success" [disabled] = "frm.invalid">Submit</button> 
+  </form>
+  
+  </div>
+  </div>
+  

@@ -1,15 +1,32 @@
 
-<div style = "text-align:center">
-  <b>Login </b>
-<form>
+<div class="container" >
+  <div class="jumbotron">
+  <h1>Login </h1>
+<form #frm="ngForm" >
+<!-- (ngSubmit) = "addUser(frm)" add this-->
+  <div class="form-group">
+    <label for="name">
+      Name:
+    </label>
+    <input type="text" class = "form-control" name="name" ngModel required>
+  </div>
 
-  <b>Name:</b>
-  <input type="text" name="name">
-  <br/>
-  <b>Password:</b>
-  <input type="password" name="password">
-  <br/>
-  <a routerLink = '/app-form'><button type="submit">Submit </button></a>
+  <div class="form-group">
+      <label for="password">
+       Password:
+      </label>
+      <input type="password" class = "form-control" name="password" ngModel required>
+    </div>
+
+    
+  
+  
+  
+  
+  <button type="submit" class="btn btn-success" [disabled] = "frm.invalid" (click)=onSubmit()>Submit </button>
 </form>
 
+
 </div>
+</div>
+
