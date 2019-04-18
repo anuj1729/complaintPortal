@@ -2,7 +2,7 @@
 <div class="container" >
   <div class="jumbotron">
   <h1>Login </h1>
-<form #frm="ngForm" >
+<form #frm="ngForm" (ngSubmit) = addUser(frm)>
 <!-- (ngSubmit) = "addUser(frm)" add this-->
   <div class="form-group">
     <label for="name">
@@ -23,7 +23,7 @@
   
   
   
-  <button type="submit" class="btn btn-success" [disabled] = "frm.invalid" (click)=onSubmit()>Submit </button>
+  <button type="submit" class="btn btn-success" [disabled] = "frm.invalid" >Submit </button>
 </form>
 
 
