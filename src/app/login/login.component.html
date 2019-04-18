@@ -2,8 +2,9 @@
 <div class="container" >
   <div class="jumbotron">
   <h1>Login </h1>
+
 <form #frm="ngForm" (ngSubmit) = addUser(frm)>
-<!-- (ngSubmit) = "addUser(frm)" add this-->
+
   <div class="form-group">
     <label for="name">
       Name:
@@ -23,7 +24,9 @@
   
   
   
+
   <button type="submit" class="btn btn-success" [disabled] = "frm.invalid" >Submit </button>
+
 </form>
 
 
