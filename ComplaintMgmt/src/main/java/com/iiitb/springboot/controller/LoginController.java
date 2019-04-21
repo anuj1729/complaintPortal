@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +20,14 @@ import com.iiitb.springboot.service.IloginService;
 
 @EnableAutoConfiguration
 @RestController
+
 public class LoginController {
 
 	@Autowired
 	private IloginService ls;
 
-	
-	 @RequestMapping(value = "/login/check", method = RequestMethod.POST, produces="text/plain")
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/login/check", method = RequestMethod.POST, produces="text/plain")
 		public String check(@Valid @RequestBody login log)
 		{
 			 System.out.println("inside check");
