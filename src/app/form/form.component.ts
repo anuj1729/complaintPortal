@@ -25,8 +25,6 @@ export class FormComponent implements OnInit {
       if(response === "Complaint successfully posted")
       {
         this.toastr.success('Success','Complaint Successfully posted');
-        // Zone routing needed to avoid view stacking problem due to the inclusion of BrowserAnimationsModule
-        this.zone.run(() => { this.router.navigate(['/dashboard/all']); });
       }
     })
                       

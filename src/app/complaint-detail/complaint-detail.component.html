@@ -1,0 +1,10 @@
+<div class="card col-lg-8" style="margin:50px auto;">
+  <div class="card-body">
+    <h4 class="card-title">{{complaint.subject}}</h4>
+    <h5 class="card-subtitle mb-2 text-muted">{{complaint.domain}}</h5> 
+    <hr>  
+    <div class="card-text">{{complaint.description}}</div>
+    <div *ngIf = "complaint.isAnonymous == 0"><b>Complaint made by : </b>{{complaint.rollno}}</div>
+    <div class="card-text"><b>Liked by {{complaint.likes}} </b></div>
+  </div>
+</div>

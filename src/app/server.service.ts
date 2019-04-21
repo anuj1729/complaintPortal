@@ -11,7 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class ServerService {
 
   constructor(private http: Http) { }
-  private API_BASE_URL = "http://localhost:3051/";
+  private API_BASE_URL = "http://localhost:3051";
   loginUser(login: Login)
   {  
     console.log(login)
@@ -32,8 +32,11 @@ export class ServerService {
       
   }
 
-  getComplaintsById(id) : Observable<Complaint[]>{
-    return this.http.get(this.API_BASE_URL + '/complaints/my_complaints' + '/' + id).map((response : Response) => response.json());
+  getComplaintsByRollno(rollno) : Observable<Complaint[]>{
+    return this.http.get(this.API_BASE_URL + '/complaints/my_complaints' + '/' + rollno).map((response : Response) => response.json());
+  }
+  getComplaintsById(id) : Observable<Complaint>{
+    return this.http.get(this.API_BASE_URL + '/complaints/' + id).map((response : Response) => response.json());
   }
 
 }

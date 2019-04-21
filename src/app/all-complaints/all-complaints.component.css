@@ -12,3 +12,6 @@ a:link{
 a:visited{
     color: black;
 }
+.complaint-item:hover{
+    box-shadow: 2px 2px 5px gray;
+}

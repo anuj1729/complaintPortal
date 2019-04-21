@@ -1,7 +1,7 @@
 <div style="margin-top : 10px;">
   <ul class="list-group">
     <li *ngFor = "let complaint of myComplaints" class="list-group-item" style="background-color:gray(177, 175, 175);margin:1px">
-      <a style="cursor:pointer" routerLink = "/dashboard/detail">
+      <a style="cursor:pointer" [routerLink] = "['/dashboard','detail',complaint.id]">
         <div>
           <label class="domain">Domain : </label>
           {{complaint.domain}}

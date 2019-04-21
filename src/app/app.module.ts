@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllComplaintsComponent } from './all-complaints/all-complaints.component';
 import { MyComplaintsComponent } from './my-complaints/my-complaints.component';
 import { componentFactoryName } from '@angular/compiler';
+import { ComplaintDetailComponent } from './complaint-detail/complaint-detail.component';
 
 
 const appRoute:Routes =[
@@ -37,9 +38,14 @@ const appRoute:Routes =[
       {
         path : 'form',
         component : FormComponent
+      },
+      {
+        path : 'detail/:id',
+        component : ComplaintDetailComponent 
       }
-    ]
-  }
+    ],
+    }
+    
 ];
 
 @NgModule({
@@ -49,13 +55,14 @@ const appRoute:Routes =[
     FormComponent,
     DashboardComponent,
     AllComplaintsComponent,
-    MyComplaintsComponent
+    MyComplaintsComponent,
+    ComplaintDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,  
 
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     HttpModule,
     RouterModule.forRoot(appRoute),
     ToastrModule.forRoot({ 
