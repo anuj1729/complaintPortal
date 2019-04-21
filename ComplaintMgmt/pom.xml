@@ -58,7 +58,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-        <finalName>dpringdocker</finalName>
+        <finalName>springdocker</finalName>
   </build>
 	
 </project>
