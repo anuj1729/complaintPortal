@@ -26,8 +26,9 @@ addUser(form: any) {
   .subscribe(
     (response) =>{ if("login success" === response)
                       {
-                      sessionStorage.setItem(name,this.loginUser.username);
-                      this.router.navigate(['/form'])
+                      // If successful store the roll no of the user
+                      sessionStorage.setItem("rollno",this.loginUser.username);
+                      this.router.navigate(['/dashboard/all']);
                       this.toastr.success('Success', "Logged In Successfully");
                       }else
                       {

@@ -4,7 +4,7 @@
 
 
     <h1>Form </h1>
-  <form #frm="ngForm" method = "post">
+  <form #complaintForm="ngForm" method = "post" (ngSubmit)=submitForm(complaintForm)>
 
       <div class="form-group">
           <label for="domain">
@@ -13,11 +13,11 @@
                
     
     <select  class = "form-control"name="domain" id="domainList" ngModel required>
-      <option value="lilavati">Lilavati</option>
-      <option value="bhaskara">Bhaskara</option>
-      <option value="library">Library</option>
-      <option value="sports">Sports</option>
-      <option value="mess">Mess</option>
+      <option value="Lilavati">Lilavati</option>
+      <option value="Bhaskara">Bhaskara</option>
+      <option value="Library">Library</option>
+      <option value="Sports">Sports</option>
+      <option value="Mess">Mess</option>
       
     </select>
   </div>
@@ -45,13 +45,15 @@
         <label for="confidentiality">
             Confidentiality : 
         </label>
-        <input type="radio" name = "anonymous" value = "anonymous" ngModel required>Anonymous   
-        <input type="radio" name = "public" value = "public" checked ngModel required>Public
+        <input type="radio" name = "privacy" value = 1 ngModel required>Anonymous   
+        <input type="radio" name = "privacy" value = 0 ngModel required>Public
       </div>
   
     
     <br/>  
-    <button type="submit" class="btn btn-success" [disabled] = "frm.invalid">Submit</button> 
+    <div style="text-align: center;">
+      <button type="submit" class="btn btn-primary" [disabled] = "complaintForm.invalid">Submit</button> 
+    </div>
   </form>
   
   </div>

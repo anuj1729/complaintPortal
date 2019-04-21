@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,29 +11,49 @@ import { ToastrModule } from 'ngx-toastr';
 import {RouterModule,Routes} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ServerService } from './server.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllComplaintsComponent } from './all-complaints/all-complaints.component';
+import { MyComplaintsComponent } from './my-complaints/my-complaints.component';
+import { componentFactoryName } from '@angular/compiler';
 
 
 const appRoute:Routes =[
   {
-    path: 'form',
-    component: FormComponent
-  },
-  {
     path : '',
     component : LoginComponent
+  },
+  {
+    path : 'dashboard',
+    component : DashboardComponent,
+    children : [
+      {
+        path : 'mine',
+        component : MyComplaintsComponent
+      },
+      {
+        path : 'all',
+        component : AllComplaintsComponent
+      },
+      {
+        path : 'form',
+        component : FormComponent
+      }
+    ]
   }
-  
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FormComponent
+    FormComponent,
+    DashboardComponent,
+    AllComplaintsComponent,
+    MyComplaintsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,  
 
     BrowserAnimationsModule,
     HttpModule,

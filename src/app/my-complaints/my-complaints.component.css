@@ -1,0 +1,14 @@
+.domain{
+    color: #7b7b7c;
+    font-weight: bold;
+}
+.subject{
+    color: #7b7b7c;
+    font-weight: bold;
+}
+a:link{
+    color: black;
+}
+a:visited{
+    color: black;
+}
