@@ -8,6 +8,12 @@
           <br>
           <label class="subject">Subject : </label>
           {{complaint.subject}}
+          <div *ngIf="complaint.isResolved == 0" style="float : right">
+              <span class="badge badge-pill badge-danger">Pending</span>
+            </div>
+            <div *ngIf="complaint.isResolved == 1" style="float : right;">
+              <span class="badge badge-pill badge-success">Resolved</span>
+            </div>
         </div>
       </a> 
     </li>

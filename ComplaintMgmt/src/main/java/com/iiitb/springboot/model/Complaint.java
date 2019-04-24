@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = {"createdAt","likes","id"}, 
         allowGetters = true)	
 public class Complaint {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,7 +54,15 @@ public class Complaint {
 	@NotBlank
 	private String rollno;
 	private int likes = 0;
-	
+	private int isResolved = 0;// 0 means unresolved,1 means resolved;
+	public int getIsResolved() {
+		return isResolved;
+	}
+
+	public void setIsResolved(int isResolved) {
+		this.isResolved = isResolved;
+	}
+
 	public int getLikes() {
 		return likes;
 	}

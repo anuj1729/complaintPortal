@@ -20,34 +20,24 @@ import com.iiitb.springboot.service.IloginService;
 
 @EnableAutoConfiguration
 @RestController
-
 public class LoginController {
 
 	@Autowired
 	private IloginService ls;
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/login/check", method = RequestMethod.POST, produces="text/plain")
-		public String check(@Valid @RequestBody login log)
-		{
-			 System.out.println("inside check");
-			//return "helo";
+	@CrossOrigin(origins = "http://localhost:4200")	
+	public String check(@Valid @RequestBody login log)
+	{
+		 	System.out.println("inside check");
 			return ls.checklogin(log);
-		//	retur
-		}
+	}
+	
+	@RequestMapping(value = "/admin/login/check", method = RequestMethod.POST, produces="text/plain")
+	@CrossOrigin(origins = "http://localhost:4200")	
+	public String checkAdmin(@Valid @RequestBody login log)
+	{
+		return ls.checkAdminlogin(log);
+	}
 	 
-	 
-	/* @PostMapping("/login")
-		public ResponseEntity<Void> addlogin(@Valid @RequestBody login lg, UriComponentsBuilder builder) {
-	                boolean flag = ls.addlogin(lg);
-	                System.out.println("passwordddddd" + lg.getPassword());
-	                System.out.println("username" + lg.getUsername());
-	                if (flag == false) {
-	        	    return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-	                }
-	                HttpHeaders headers = new HttpHeaders();
-	                headers.setLocation(builder.path("/login/{id}").buildAndExpand(lg.getHospitalid()).toUri());
-	                return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-		}
-		*/
 }

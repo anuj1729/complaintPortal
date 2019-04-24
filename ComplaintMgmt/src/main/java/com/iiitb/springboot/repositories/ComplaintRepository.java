@@ -9,4 +9,6 @@ import com.iiitb.springboot.model.Complaint;
 @Repository
 public interface ComplaintRepository extends JpaRepository<Complaint,Long>{
 	public List <Complaint> findByRollno(String rollno);
+	public List<Complaint> findAllByOrderByIsResolvedAsc();
+	public List <Complaint> findByDomain(String domain);
 }

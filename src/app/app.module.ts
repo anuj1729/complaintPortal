@@ -14,10 +14,10 @@ import { ServerService } from './server.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllComplaintsComponent } from './all-complaints/all-complaints.component';
 import { MyComplaintsComponent } from './my-complaints/my-complaints.component';
-import { componentFactoryName } from '@angular/compiler';
 import { ComplaintDetailComponent } from './complaint-detail/complaint-detail.component';
-
-
+import { AdminComponent } from './admin/admin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { CreateAdminComponent } from './create-admin/create-admin.component';
 const appRoute:Routes =[
   {
     path : '',
@@ -44,6 +44,14 @@ const appRoute:Routes =[
         component : ComplaintDetailComponent 
       }
     ],
+    },
+    {
+      path : 'admin',
+      component : AdminComponent
+    },
+    {
+      path : 'admin/dashboard',
+      component : AdminDashboardComponent
     }
     
 ];
@@ -56,12 +64,15 @@ const appRoute:Routes =[
     DashboardComponent,
     AllComplaintsComponent,
     MyComplaintsComponent,
-    ComplaintDetailComponent
+    ComplaintDetailComponent,
+    AdminComponent,
+    AdminDashboardComponent,
+    CreateAdminComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,  
-
+    //NoopAnimationsModule,
     //BrowserAnimationsModule,
     HttpModule,
     RouterModule.forRoot(appRoute),

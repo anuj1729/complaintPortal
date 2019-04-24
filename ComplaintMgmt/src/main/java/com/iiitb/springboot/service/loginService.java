@@ -17,20 +17,18 @@ public class loginService implements IloginService {
 		 if (loginDao.loginExists(lg.getUsername(), lg.getPassword())) {
 	            return "login success";
          } else {
-	           // loginDao.addlogin(lg);
 	            return "login fail";
          }
 	}
-	/*
+	
 	@Override
-	public synchronized boolean addlogin(login lg){
-                if (loginDao.loginExists(lg.getUsername(), lg.getPassword())) {
-    	            return false;
-                } else {
-    	            loginDao.addlogin(lg);
-    	            return true;
-                }
+	public String checkAdminlogin(login lg) {
+		if(loginDao.adminExists(lg.getUsername(), lg.getPassword())) {
+			return "login success";
+		}
+		else {
+			return "login fail";
+		}
 	}
-	*/
 
 }

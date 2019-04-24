@@ -1,0 +1,33 @@
+<!-- <div class="container" style="margin-bottom : 25px;">
+    <div *ngIf = "can_create_admin === 'yes'"> 
+        <button class="btn btn-primary" (click) = "createAdminPage()"><img src="../../assets/open-iconic-master/svg/plus.svg">Create Admin</button>
+    </div>
+</div> -->
+
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Domain</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Description</th>
+            <th scope="col">Resolved</th>
+        </tr>
+    </thead>
+    <tbody *ngFor = "let complaint of complaints">
+        <tr>
+            <td>  {{complaint.domain}}  </td>
+            <td>  {{complaint.subject}}  </td>
+            <td>  {{complaint.description}}  </td>
+            <td>  {{complaint.isResolved === 0 ? 'No' : 'Yes'}}  
+                <span *ngIf = "complaint.isResolved === 0" style="margin-left : 50px;"> 
+                    <button class="btn btn-danger" (click) = "resolveComplaintAndRefreshPage(complaint.id)">Resolve Complaint</button>
+                </span>
+                <span *ngIf = "complaint.isResolved === 1" style="margin-left : 50px">
+                    <button class="btn btn-success">Resolved</button>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -6,4 +6,5 @@ export interface Complaint{
     isAnonymous : number;
     rollno : string;
     likes : number;
+    isResolved : number;
 }

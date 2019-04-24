@@ -5,4 +5,6 @@ import com.iiitb.springboot.model.login;
 public interface IloginService {
 	 //  boolean addlogin(login lg);
 	     String checklogin(login lg);
+
+	     String checkAdminlogin(login lg);
 }

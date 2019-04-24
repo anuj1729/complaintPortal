@@ -6,4 +6,7 @@ public interface IloginDao {
     //void addlogin(login lg);
     
     boolean loginExists(String username, String password);
+    
+    boolean adminExists(String username,String password);
 }
+

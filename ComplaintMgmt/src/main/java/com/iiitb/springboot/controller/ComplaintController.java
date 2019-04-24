@@ -24,7 +24,7 @@ public class ComplaintController {
 	@GetMapping("/complaints")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public List <Complaint> getAllComplaints(){
-		return complaintRepository.findAll();
+		return complaintRepository.findAllByOrderByIsResolvedAsc();
 	}
 	
 	@PostMapping("/complaints")
@@ -46,14 +46,19 @@ public class ComplaintController {
 		return complaintRepository.findByRollno(rollno);
 	}
 	
-	@PutMapping("/complaints/{id}")
+	@PutMapping("/complaints/resolve/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Complaint updateComplaint(@PathVariable(value = "id") Long complaintId,@Valid @RequestBody Complaint complaintDetails) {
+	public Complaint resolveComplaint(@PathVariable(value = "id") Long complaintId) {
 		Complaint complaint = complaintRepository.findById(complaintId).orElse(null);
-		complaint.setLikes(complaintDetails.getLikes());
+		complaint.setIsResolved(1);
 		Complaint updatedComplaint = complaintRepository.save(complaint);
 		return updatedComplaint;
 	}
 	
+	@GetMapping("/admin/{domain}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List <Complaint> getComplaintsByDomain(@PathVariable(value = "domain") String domain){
+		return complaintRepository.findByDomain(domain);
+	}
 }
 

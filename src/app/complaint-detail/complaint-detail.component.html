@@ -4,7 +4,17 @@
     <h5 class="card-subtitle mb-2 text-muted">{{complaint.domain}}</h5> 
     <hr>  
     <div class="card-text">{{complaint.description}}</div>
-    <div *ngIf = "complaint.isAnonymous == 0"><b>Complaint made by : </b>{{complaint.rollno}}</div>
-    <div class="card-text"><b>Liked by {{complaint.likes}} </b></div>
+    <div *ngIf = "complaint.isAnonymous == 0"><b>Complaint made by : </b>{{complaint.rollno}}
+    </div>
+    <div *ngIf = "complaint.isResolved == 1"><h5><span class="badge badge-success">
+        Resolved 
+      </span>
+    </h5>
+      </div>
+      <div *ngIf = "complaint.isResolved == 0"><h5><span class="badge badge-danger">
+          Pending 
+      </span>
+    </h5>
+        </div>
   </div>
 </div>

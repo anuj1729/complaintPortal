@@ -1,0 +1,38 @@
+<div class="container"  >
+  <div class="jumbotron" >
+  <form #adminForm="ngForm" method = "post" (ngSubmit)=createAdminForm(adminForm)>
+    <div class="form-group">
+      <label for="username">Username : </label>
+      <input type="text" name="username" placeholder = "Username" class="form-control" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" type="password" name="password" placeholder="Password" ngModel required> 
+    </div>
+    <div class="form-group">
+      <label for="adminDomain">Admin Domain
+      </label>
+      <select  class = "form-control" name="adminDomain" id="domainList" ngModel required>
+          <option value="Lilavati">Lilavati</option>
+          <option value="Bhaskara">Bhaskara</option>
+          <option value="Library">Library</option>
+          <option value="Sports">Sports</option>
+          <option value="Mess">Mess</option>
+          
+        </select>
+    </div>
+    <div class="form-group" style="text-align:center;">
+      <label for="createAdminPrivelege">Can Create Admin?</label>
+      <input type="radio" name = "createAdminPrivelege" value = "yes"  ngModel required>Yes   
+      <input type="radio" name = "createAdminPrivelege" value = "no" ngModel required>No
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary" [disabled] = "adminForm.invalid">Submit</button> 
+      </div>
+
+  </form>
+  
+  </div>
+  </div>
+  
