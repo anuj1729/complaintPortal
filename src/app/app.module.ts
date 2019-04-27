@@ -18,10 +18,15 @@ import { ComplaintDetailComponent } from './complaint-detail/complaint-detail.co
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { SignupComponent } from './signup/signup.component';
 const appRoute:Routes =[
   {
     path : '',
     component : LoginComponent
+  },
+  {
+    path : 'signup',
+    component : SignupComponent
   },
   {
     path : 'dashboard',
@@ -53,7 +58,6 @@ const appRoute:Routes =[
       path : 'admin/dashboard',
       component : AdminDashboardComponent
     }
-    
 ];
 
 @NgModule({
@@ -67,7 +71,8 @@ const appRoute:Routes =[
     ComplaintDetailComponent,
     AdminComponent,
     AdminDashboardComponent,
-    CreateAdminComponent
+    CreateAdminComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
