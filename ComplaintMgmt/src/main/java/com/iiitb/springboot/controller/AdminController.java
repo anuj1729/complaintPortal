@@ -12,12 +12,12 @@ import com.iiitb.springboot.model.Admin;
 import com.iiitb.springboot.repositories.AdminRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8087")
 public class AdminController {
 	@Autowired
 	AdminRepository adminRepository;
 	
 	@PostMapping("/admin/getadmin")
-	@CrossOrigin(origins = "*")
 	public Admin getAdmin(@Valid @RequestBody String username) {
 		return adminRepository.findByUsername(username);
 	}

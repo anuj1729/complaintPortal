@@ -20,13 +20,13 @@ import com.iiitb.springboot.service.IloginService;
 
 @EnableAutoConfiguration
 @RestController
+@CrossOrigin(origins = "http://localhost:8087")
 public class LoginController {
 
 	@Autowired
 	private IloginService ls;
 
 	@RequestMapping(value = "/login/check", method = RequestMethod.POST, produces="text/plain")
-	@CrossOrigin(origins = "*")	
 	public String check(@Valid @RequestBody login log)
 	{
 		 	System.out.println("inside check");
@@ -34,7 +34,6 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/admin/login/check", method = RequestMethod.POST, produces="text/plain")
-	@CrossOrigin(origins = "*")	
 	public String checkAdmin(@Valid @RequestBody login log)
 	{
 		return ls.checkAdminlogin(log);
