@@ -135,11 +135,11 @@ MIT
 MIT
 MIT
 
-@angular/platform-browser@4.4.7
+@angular/compiler@4.4.7
 MIT
 MIT
 
-@angular/compiler@4.4.7
+@angular/platform-browser@4.4.7
 MIT
 MIT
 

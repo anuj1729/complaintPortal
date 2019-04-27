@@ -1,5 +1,5 @@
-FROM JAVA:8
+FROM maven:3-jdk-8
+VOLUME /tmp
 EXPOSE 3051
-EXPOSE 3306
-ADD target/springdocker.jar springdocker.jar
-ENTRYPOINT ["java",".jar","springdocker.jar"]
+ADD target/SpringDocker.war SpringDocker.war 
+ENTRYPOINT ["java","-jar","SpringDocker.war"]

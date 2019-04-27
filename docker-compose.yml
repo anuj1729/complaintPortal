@@ -1,0 +1,32 @@
+version: '2.0'
+
+services:
+  mysql-docker-container:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ComplaintPortal
+      - MYSQL_USER=root
+    ports:
+      - 3306:3306
+    expose:
+      - '3306'
+    volumes:
+      - /data/mysql
+    
+  spring-boot-jpa-app:
+    image: springdocker
+    expose:
+      - '3051'
+    build:
+      context: ./ComplaintMgmt
+      dockerfile: Dockerfile     
+    depends_on:
+      - mysql-docker-container
+    ports:
+      - 3051:3051
+    volumes:
+      - /data/spring-boot-app
+    environment:
+      WAIT_HOSTS: mysql:3306

@@ -4,8 +4,6 @@
   <artifactId>ComplaintMgmt</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>ComplaintMgmt</name>
-
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -43,13 +41,16 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        
-        <!-- dependency for entity bean error -->
-        
-	  
-        
-        
-        </dependencies>
-	
+        </dependency>     
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+			<finalName>SpringDocker</finalName>
+	</build>
+<packaging>war</packaging>
 </project>
