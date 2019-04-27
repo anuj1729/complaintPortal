@@ -41,34 +41,16 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <scope>runtime</scope>
-<<<<<<< HEAD
         </dependency>     
 	</dependencies>
 	<build>
-=======
-        </dependency>
-        
-        <!-- dependency for entity bean error -->
-        
-	  
-        
-        
-        </dependencies>
-  <build>
->>>>>>> 451b02d7af8ff7010f8be136cabc2051c27104d8
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-<<<<<<< HEAD
 			<finalName>SpringDocker</finalName>
 	</build>
 <packaging>war</packaging>
-=======
-		<finalName>springdocker</finalName>
-		</build>
-	
->>>>>>> 451b02d7af8ff7010f8be136cabc2051c27104d8
 </project>
