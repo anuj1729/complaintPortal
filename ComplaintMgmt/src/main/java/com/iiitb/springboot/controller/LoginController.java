@@ -20,7 +20,7 @@ import com.iiitb.springboot.service.IloginService;
 
 @EnableAutoConfiguration
 @RestController
-@CrossOrigin(origins = "http://localhost:8087")
+@CrossOrigin(origins = "*",allowedHeaders="*")
 public class LoginController {
 
 	@Autowired

@@ -17,7 +17,7 @@ import com.iiitb.springboot.model.Complaint;
 import com.iiitb.springboot.repositories.ComplaintRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8087")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class ComplaintController {
 	@Autowired
 	ComplaintRepository complaintRepository;

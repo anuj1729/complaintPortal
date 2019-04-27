@@ -12,7 +12,7 @@ import com.iiitb.springboot.model.Admin;
 import com.iiitb.springboot.repositories.AdminRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8087")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class AdminController {
 	@Autowired
 	AdminRepository adminRepository;
