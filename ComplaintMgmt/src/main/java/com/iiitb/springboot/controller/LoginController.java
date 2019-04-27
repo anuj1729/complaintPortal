@@ -26,7 +26,7 @@ public class LoginController {
 	private IloginService ls;
 
 	@RequestMapping(value = "/login/check", method = RequestMethod.POST, produces="text/plain")
-	@CrossOrigin(origins = "http://localhost:4200")	
+	@CrossOrigin(origins = "*")	
 	public String check(@Valid @RequestBody login log)
 	{
 		 	System.out.println("inside check");
@@ -34,7 +34,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/admin/login/check", method = RequestMethod.POST, produces="text/plain")
-	@CrossOrigin(origins = "http://localhost:4200")	
+	@CrossOrigin(origins = "*")	
 	public String checkAdmin(@Valid @RequestBody login log)
 	{
 		return ls.checkAdminlogin(log);
