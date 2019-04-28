@@ -19,6 +19,7 @@ public class AdminController {
 	@PostMapping("/admin/getadmin")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Admin getAdmin(@Valid @RequestBody String username) {
+		System.out.println("");
 		return adminRepository.findByUsername(username);
 	}
 	

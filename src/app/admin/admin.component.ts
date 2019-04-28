@@ -11,29 +11,27 @@ import { Login } from '../login';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  form : FormGroup
-  loginUser : Login = {} as any;
-  constructor(private router : Router,private serverService : ServerService,private toastr : ToastrService) { }
+  form: FormGroup;
+  loginUser: Login = {} as any;
+  constructor(private router: Router, private serverService: ServerService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
-  submitForm(form){
-    this.loginUser={username:form.value.name, password:form.value.password}
-  this.serverService.adminLogin(this.loginUser)
-  .subscribe(
-    (response) =>{ if("login success" === response)
-                    {
-                      sessionStorage.setItem('admin',form.value.name);  
-                      this.router.navigate(['/admin','dashboard']);
-                      this.toastr.success('Success', "Logged In Successfully");
-                    }
-                    else
-                    {  
-                      this.toastr.error('Failed', "Invalid Credentials");
-                    }
-                    console.log(response);  
-                  },
-    (error) =>console.log(error)
-  );
+  submitForm(form) {
+    this.loginUser = { username: form.value.name, password: form.value.password };
+    this.serverService.adminLogin(this.loginUser)
+      .subscribe(
+        (response) => {
+          if ('login success' === response) {
+            sessionStorage.setItem('admin', form.value.name);
+            this.router.navigate(['/admin', 'dashboard']);
+            this.toastr.success('Success', 'Logged In Successfully');
+          } else {
+            this.toastr.error('Failed', 'Invalid Credentials');
+          }
+          console.log(response);
+        },
+        (error) => console.log(error)
+      );
   }
 }

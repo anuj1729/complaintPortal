@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Admin} from '../admin';
+import { Admin } from '../admin';
 import { Router } from '@angular/router';
 import { ServerService } from '../server.service';
 @Component({
@@ -8,16 +8,19 @@ import { ServerService } from '../server.service';
   styleUrls: ['./create-admin.component.css']
 })
 export class CreateAdminComponent implements OnInit {
-  constructor(private router : Router,private serverService : ServerService) { }
-  admin : Admin = {} as any;
+  constructor(private router: Router, private serverService: ServerService) { }
+  admin: Admin = {} as any;
   ngOnInit() {
   }
 
-  createAdminForm(frm : any){  
-    this.admin = {id : 0,username : frm.value.username, password : frm.value.password, domain : frm.value.domain, hasCreateAdminPrivelege : frm.value.createAdminPrivelege};
+  createAdminForm(frm: any) {
+    this.admin = {
+      id: 0, username: frm.value.username, password: frm.value.password,
+      domain: frm.value.domain, hasCreateAdminPrivelege: frm.value.createAdminPrivelege
+    };
     this.serverService.createNewAdmin(this.admin).subscribe(response => {
       console.log(response);
-      this.router.navigate(['/admin','dashboard']);
-    })
+      this.router.navigate(['/admin', 'dashboard']);
+    });
   }
 }

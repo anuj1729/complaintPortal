@@ -1,0 +1,25 @@
+version : '3'
+services : 
+  mysql-docker-container:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ComplaintPortal
+      - MYSQL_USER=root
+    volumes:
+      - /data/mysql
+  complaint-portal: 
+    image : backend
+    environment:
+      WAIT_HOSTS: mysql-docker-container
+    build: 
+      context : ./
+      dockerfile : Dockerfile
+    depends_on: 
+      - mysql-docker-container
+    ports: 
+      - 3051:3051
+    expose: 
+      - '3051'
+    volumes: 
+      - /data/complaintdata

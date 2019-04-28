@@ -10,44 +10,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  username : string;
-  domain : string;
-  can_create_admin : string;
-  complaints : Complaint[];
-  
-  constructor(private router : Router,private serverService : ServerService) { }
+  username: string;
+  domain: string;
+  can_create_admin: string;
+  complaints: Complaint[];
+
+  constructor(private router: Router, private serverService: ServerService) { }
 
   ngOnInit() {
     this.username = sessionStorage.getItem('admin');
     this.getAdminDetails();
   }
 
-  getAdminDetails(){
+  getAdminDetails() {
     this.serverService.getAdmin(this.username).subscribe(admin => {
       this.domain = admin.domain;
-      sessionStorage.setItem('domain',admin.domain);
+      sessionStorage.setItem('domain', admin.domain);
       this.can_create_admin = admin.hasCreateAdminPrivelege;
       this.getComplaints();
-    })
+    });
   }
 
-  getComplaints(){
+  getComplaints() {
     this.serverService.getComplaintsByDomain(sessionStorage.getItem('domain')).subscribe(complaints => {
       this.complaints = complaints;
       console.log(complaints);
-    })
+    });
   }
 
   // method triggered when admin chooses to resolve a complaint
-  resolveComplaintAndRefreshPage(complaintId){
+  resolveComplaintAndRefreshPage(complaintId) {
     this.serverService.resolveComplaint(complaintId).subscribe(complaint => {
       console.log(complaint);
       window.location.reload();
-    })
+    });
   }
 
-  createAdminPage(){
-    this.router.navigate(['/admin','create'])
+  createAdminPage() {
+    this.router.navigate(['/admin', 'create']);
   }
 
 }
