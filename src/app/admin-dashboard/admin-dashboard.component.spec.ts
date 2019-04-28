@@ -14,7 +14,7 @@ describe('AdminDashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AdminDashboardComponent],
-      imports: [RouterModule, RouterTestingModule, NoopAnimationsModule, HttpModule],
+    ,
       providers: [ServerService]
     })
       .compileComponents();
