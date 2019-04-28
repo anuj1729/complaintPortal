@@ -89,9 +89,11 @@ var AdminDashboardComponent = (function () {
     };
     // method triggered when admin chooses to resolve a complaint
     AdminDashboardComponent.prototype.resolveComplaintAndRefreshPage = function (complaintId) {
+        var _this = this;
         this.serverService.resolveComplaint(complaintId).subscribe(function (complaint) {
             console.log(complaint);
-            window.location.reload();
+            //window.location.reload();
+            _this.router.navigate(['/admin', 'dashboard']);
         });
     };
     AdminDashboardComponent.prototype.createAdminPage = function () {
