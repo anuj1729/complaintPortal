@@ -1,5 +1,5 @@
 <div class="container">
-  <form #signupForm="ngForm" method="post" (ngSubmit)=signupUser(frm)>
+  <form #signupForm="ngForm" method="post" (ngSubmit)=submitForm(signupForm)>
     <div class="form-group">
       <label for="rollno">Roll no : </label>
       <input type="text" name="rollno" class="form-control" placeholder="Roll no" ngModel required>

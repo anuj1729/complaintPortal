@@ -14,8 +14,10 @@ export class ServerService {
   private API_BASE_URL = "http://localhost:3051";
 
   signupUser(body){
+    console.log("Signup Details : ");
+    console.log(body);
     const headers = new Headers({'Content-type' : 'application/json'});
-    return this.http.post(this.API_BASE_URL + '/signup',body,{headers : headers}).map((response : Response) => response.json());
+    return this.http.post(this.API_BASE_URL + '/signup',body,{headers : headers}).map((response : Response) => response.text());
   }
 
   loginUser(login: Login)

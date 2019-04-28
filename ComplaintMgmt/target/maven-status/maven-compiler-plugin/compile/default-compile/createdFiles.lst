@@ -5,6 +5,7 @@ com/iiitb/springboot/dao/IloginDao.class
 com/iiitb/springboot/model/login.class
 com/iiitb/springboot/model/Admin.class
 com/iiitb/springboot/model/Complaint.class
+com/iiitb/springboot/repositories/LoginRepository.class
 com/iiitb/springboot/service/FormService.class
 com/iiitb/springboot/service/loginService.class
 com/iiitb/springboot/hello/HelloController.class
@@ -13,6 +14,5 @@ com/iiitb/springboot/controller/LoginController.class
 com/iiitb/springboot/repositories/ComplaintRepository.class
 com/iiitb/springboot/dao/SHA256.class
 com/iiitb/springboot/ComplaintManagement.class
-com/iiitb/springboot/model/ComplaintForm.class
 com/iiitb/springboot/dao/loginDao.class
 com/iiitb/springboot/repositories/AdminRepository.class
